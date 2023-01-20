@@ -7,6 +7,8 @@ choose **only one** of the following two solutions:
 * S1: Use the web version of Microsoft Teams with Chromium
 * S2: Disable Wayland and use Xorg
 
+Between the two solution, S1 is preferred as the web version of Microsoft Teams, beside supporting screen sharing on Wayland, also supports features that are not supported in the Microsoft Teams app you can get from https://www.microsoft.com/en-us/microsoft-teams/download-app , such as having more than four persons in the video when you are having a video chat.
+
 ## S1: Use the web version of Microsoft Teams with Chromium
 
 First of all, uninstall the desktop version:
