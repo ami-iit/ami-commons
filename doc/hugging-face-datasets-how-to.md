@@ -68,13 +68,17 @@ At this point it is useful to already upload the archives to the Hugging Face Hu
 
 1. Create a new dataset on the Hugging Face Hub, for users in  an organization this can be done from the organization page: 
 
+![Screenshot_20230503_105357](https://github.com/ami-iit/ami-commons/assets/13227565/ec94519a-0149-4c64-95ea-cf8dd5faf7b4)
+
 
 2. Upload the archives to the dataset, you can do this from the dataset page, using the `Add file` button:
 
+![Screenshot_20230503_105810](https://github.com/ami-iit/ami-commons/assets/13227565/9790ae92-9cef-44e7-97b4-da9550718256)
 
 
 4. After uploading the tar archives, the link for donwlading them will be available by clicking the small download arrow on the right of the file size:
 
+![Screenshot_20230503_105746](https://github.com/ami-iit/ami-commons/assets/13227565/eeb6a8d1-b675-4694-bf3e-f713b07f3138)
 
 
 Right click the arrow and copy link.
