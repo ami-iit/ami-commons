@@ -1,23 +1,26 @@
 # IsaacGym Installation Troubleshooting
 
-Using Ubuntu 22.04 which is not officially supported yet.
+Currently working with [Isaac Gym Preview 4](https://istitutoitalianotecnologia.sharepoint.com/:f:/r/sites/ArtificialandMechanicalIntelligence/Documenti%20condivisi/Software%20Engineering/Software?csf=1&web=1&e=4tbjux).
+
+> **Warning**
+> The content is for **internal use only** and should not to be distributed to external parties.
 
 ## ImportError: libpython
 
-```plain
+```console
 ImportError: libpython3.7m.so.1.0: cannot open shared object file: No such file or directory
 ```
 
 In your conda env run:
 
-```plain
-conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/xyz/mambaforge/envs/rlgpu/lib
+```sh
+conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/$(whoami)/mambaforge/envs/rlgpu/lib
 ```
-where `mambaforge` should be substituted with `anaconda3` if you are using Anaconda and `xyz` is your username.
+where `mambaforge` should be substituted with `anaconda3` if you are using Anaconda.
 
 ## Error: failed to solve Docker
 
-```plain
+```sh
 --------------------
    1 | >>> FROM nvcr.io/nvidia/pytorch:21.09-py3
    2 |     ENV DEBIAN_FRONTEND=noninteractive 
@@ -33,17 +36,17 @@ ERROR: failed to solve: failed to fetch anonymous token: unexpected status: 401 
 5. Click **Generate API Key** to generate your API key. 
 6. Click **Confirm** to generate the key.
 7. Run:
-```bash
+```sh
 docker login nvcr.io
 ```
 9. Log in using your API Key from ngc.nvidia.com:
-```bash
-Username: $oauthtoken #literally, it is the same for all users
+```sh
+Username: $oauthtoken # literally, it is the same for all users
 Password: <enter-NGC-API-key>
 ```
 
 ## Error: FDX Library failed to load
-```bash
+```sh
 Error: FBX library failed to load - importing FBX data will not succeed. Message: No module named 'fbx'
 FBX tools must be installed from https://help.autodesk.com/view/FBX/2020/ENU/?guid=FBX_Developer_Help_scripting_with_python_fbx_installing_python_fbx_html
 ```
@@ -54,7 +57,7 @@ From [help.autodesk.com](https://help.autodesk.com/view/FBX/2020/ENU/?guid=FBX_D
 4. Download the file and install the Python Binding following the instructions on the extracted `install_FbxPythonBindings.txt`.
 Let’s call the directory where you installed the Python Binding for FBX as `<yourFBXPythonSDKpath>`.
 5. Go to `<yourFBXPythonSDKpath>` and type the command:
-```bash
+```sh
 python -m pip install name_of_the_wheel_file.whl
 ```
 Note that pip will handle the location where the wheel file is extracted. If you do not have the appropriate permissions when running pip you may get the following messsage: "Defaulting to user installation because normal site-packages is not writeable" .
@@ -65,7 +68,7 @@ I wasn't able to find any wheel package in the specified folder, but it seems to
 
 ## RuntimeError: CUDA unknown error
 
-```plain 
+```sh 
 RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
 ```
 Try first to check if CUDA is available:
@@ -73,6 +76,7 @@ Try first to check if CUDA is available:
 import torch
 torch.cuda.is_available()
 ```
+
 If you get `False`, then:
 ```bash
 sudo rmmod nvidia_uvm
