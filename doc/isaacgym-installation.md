@@ -122,7 +122,6 @@ In your conda env run:
 ```sh
 conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX
 ```
-where `mambaforge` should be substituted with `anaconda3` if you are using Anaconda.
 
 ### Error: failed to solve Docker
 
