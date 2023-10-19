@@ -120,7 +120,7 @@ ImportError: libpython3.7m.so.1.0: cannot open shared object file: No such file 
 In your conda env run:
 
 ```sh
-conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX
+conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
 ```
 
 ### Error: failed to solve Docker
