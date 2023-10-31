@@ -24,9 +24,24 @@ Tmux has a very particular way to handle splits (terminals part of the view). Mo
 
 Pasting content from the clipboard of the local machine should work OOTB, though copying text from the remote machine does not work.
 
-The trick is to press `Shift` while using the mouse to select the text to copy. This operation disables the mouse supports and gives back copy capability.
+### Setup
+1. First enable mouse support `echo "set -g mouse on" >> $HOME/.tmux.conf`
+1. Then, while in a tmux session press `Shift` while using the mouse to select the text to copy. This operation disables the mouse supports and gives back copy capability.
+
+Alternatively, you can use the `tmux` command `copy-mode`: `Ctrl+b` `Ctrl+[` to enter copy mode, then use the arrow keys to move around and select text. Press `Enter` to copy the selected text to the clipboard.
+
+### Setup
+1. First enable mouse support `echo "set -g mouse on" >> $HOME/.tmux.conf`
+1. Then, while in a tmux session press `Shift` while using the mouse to select the text to copy. This operation disables the mouse supports and gives back copy capability.
+
+Alternatively, you can use the `tmux` command `copy-mode`: `Ctrl+B [` to enter copy mode, then use the arrow keys to move around and select text by first pressing `Ctrl + spacebar`. Press `Ctrl + w` to copy the selected text to the clipboard and paste it in another `tmux` session using `Ctrl + ]`. In order to copy the context to Linux clipboard, `xclip` will be required, please refer to the [official documentation](http://man.openbsd.org/OpenBSD-current/man1/tmux.1) or the [`tmux` wiki](https://github.com/tmux/tmux/wiki/).
+
+### Usage
+
 
 ## byobu
+
+Optionally, you can use `byobu` to wrap `tmux` and `screen` and provide a more user-friendly interface.
 
 For an exhaustive tutorial, refer to the [official documentation](https://www.byobu.org/documentation).
 
