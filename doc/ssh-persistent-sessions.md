@@ -28,16 +28,26 @@ Pasting content from the clipboard of the local machine should work OOTB, though
 1. First enable mouse support `echo "set -g mouse on" >> $HOME/.tmux.conf`
 1. Then, while in a tmux session press `Shift` while using the mouse to select the text to copy. This operation disables the mouse supports and gives back copy capability.
 
-Alternatively, you can use the `tmux` command `copy-mode`: `Ctrl+b` `Ctrl+[` to enter copy mode, then use the arrow keys to move around and select text. Press `Enter` to copy the selected text to the clipboard.
-
-### Setup
-1. First enable mouse support `echo "set -g mouse on" >> $HOME/.tmux.conf`
-1. Then, while in a tmux session press `Shift` while using the mouse to select the text to copy. This operation disables the mouse supports and gives back copy capability.
-
 Alternatively, you can use the `tmux` command `copy-mode`: `Ctrl+B [` to enter copy mode, then use the arrow keys to move around and select text by first pressing `Ctrl + spacebar`. Press `Ctrl + w` to copy the selected text to the clipboard and paste it in another `tmux` session using `Ctrl + ]`. In order to copy the context to Linux clipboard, `xclip` will be required, please refer to the [official documentation](http://man.openbsd.org/OpenBSD-current/man1/tmux.1) or the [`tmux` wiki](https://github.com/tmux/tmux/wiki/).
 
 ### Usage
 
+~~~
+# Check existing sessions
+tmux ls
+
+# Create a new named session
+tmux new -s <name>
+
+# Detach from a session
+# Press Ctrl+B D
+
+# Delete a session
+tmux kill-session -t <name>
+
+# Reconnect to an existing session
+tmux attach -t <name>
+~~~
 
 ## byobu
 
