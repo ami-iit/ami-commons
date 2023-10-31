@@ -32,7 +32,7 @@ Alternatively, you can use the `tmux` command `copy-mode`: `Ctrl+B [` to enter c
 
 ### Usage
 
-~~~
+~~~bash
 # Check existing sessions
 tmux ls
 
@@ -66,7 +66,7 @@ The tmux configuration is huge. This is only the 0.1% of what you can do.
 
 ### Usage
 
-```bash
+~~~bash
 # Check existing sessions
 byobu list-sessions
 
@@ -81,4 +81,4 @@ byobu kill-session -t <name>
 
 # Reconnect to an existing session (interactively)
 byobu-select-session
-```
+~~~
