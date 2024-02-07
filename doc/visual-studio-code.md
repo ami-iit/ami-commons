@@ -6,9 +6,10 @@ The extensions we typically use for development of C/C++ and Python applications
  - [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) for C++ development and integerated CMake;
  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for python development;
  - [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) for python notebooks;
- - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) to enhance the git integration.
- - [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to connect to remote hosts via SSH.
- - [DevContainers](https://code.visualstudio.com/docs/devcontainers/containers) to easily develop on Docker containers.
+ - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) to enhance the git integration;
+ - [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) to connect to remote hosts;
+ - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) to edit and compile LaTeX documents;
+ - [XML Tools](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml) for XML formatting;
 
 In  addition it is suggested to set the following settings:
  - **Files: Auto Save** - > On Focus Change (Allows for automatic save of files when the focus changes)
