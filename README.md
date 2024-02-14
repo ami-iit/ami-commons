@@ -9,6 +9,7 @@ You can find many resources and how to in the [wiki of this repo](https://github
 ## Repo
 
 Some other documentation is available in the repo itself:
+* [How to setup Visual Studio Code for development of C++ and Python code in the AMI Research Line](./doc/visual-studio-code.md)
 * [How to install CasADi + IPOPT + HSL](./doc/casadi-ipopt-hsl.md)
 * [How to share a Visual Studio Code editing session with LiveShare](./doc/how-to-liveshare-vscode-web.md)
 * [How to upload data to Hugging Face Hub](./doc/hugging-face-datasets-how-to.md)
