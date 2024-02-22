@@ -17,3 +17,4 @@ Some other documentation is available in the repo itself:
 * [How to share your screen with Microsoft Teams on Ubuntu 22.04](./doc/microsoft-teams-screen-share-ubuntu-22-04.md)
 * [How to create persistent session (i.e. that remain after disconnection) with ssh](./doc/ssh-persistent-sessions.md)
 * [How to upgrade to the latest NVIDIA driver](./doc/upgrade_nvidia_driver.md)
+* [How to upgrade to the latest Ubuntu version](./doc/upgrade_ubuntu_version.md)
