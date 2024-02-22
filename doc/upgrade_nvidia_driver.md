@@ -8,7 +8,55 @@ sudo apt autoremove --purge
 sudo apt clean
 ```
 
-Install the driver from `apt`, you can choose among one of the available drivers shown with `ubuntu-drivers list`:
+Then you can find the available drivers with `ubuntu-drivers list`, for example:
+```
+nvidia-driver-525-server, (kernel modules provided by linux-modules-nvidia-525-server-generic-hwe-22.04)
+nvidia-driver-525, (kernel modules provided by linux-modules-nvidia-525-generic-hwe-22.04)
+nvidia-driver-530, (kernel modules provided by nvidia-dkms-530)
+nvidia-driver-470-server, (kernel modules provided by linux-modules-nvidia-470-server-generic-hwe-22.04)
+nvidia-driver-515, (kernel modules provided by nvidia-dkms-515)
+nvidia-driver-520, (kernel modules provided by nvidia-dkms-520)
+nvidia-driver-535-server, (kernel modules provided by linux-modules-nvidia-535-server-generic-hwe-22.04)
+nvidia-driver-550, (kernel modules provided by nvidia-dkms-550)
+nvidia-driver-525-open, (kernel modules provided by linux-modules-nvidia-525-open-generic-hwe-22.04)
+nvidia-driver-550-open, (kernel modules provided by nvidia-dkms-550-open)
+nvidia-driver-535, (kernel modules provided by linux-modules-nvidia-535-generic-hwe-22.04)
+nvidia-driver-535-server-open, (kernel modules provided by linux-modules-nvidia-535-server-open-generic-hwe-22.04)
+nvidia-driver-545, (kernel modules provided by linux-modules-nvidia-545-generic-hwe-22.04)
+nvidia-driver-535-open, (kernel modules provided by linux-modules-nvidia-535-open-generic-hwe-22.04)
+nvidia-driver-545-open, (kernel modules provided by linux-modules-nvidia-545-open-generic-hwe-22.04)
+nvidia-driver-470, (kernel modules provided by linux-modules-nvidia-470-generic-hwe-22.04)
+```
+
+To check what drivers are suggested for your graphics card use `sudo ubuntu-drivers devices`:
+```
+== /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
+modalias : pci:v000010DEd000025A0sv00001028sd00000B19bc03sc02i00
+vendor   : NVIDIA Corporation
+model    : GA107M [GeForce RTX 3050 Ti Mobile]
+driver   : nvidia-driver-550-open - third-party non-free
+driver   : nvidia-driver-525 - third-party non-free
+driver   : nvidia-driver-535-server-open - distro non-free
+driver   : nvidia-driver-520 - third-party non-free
+driver   : nvidia-driver-525-server - distro non-free
+driver   : nvidia-driver-525-open - distro non-free
+driver   : nvidia-driver-545-open - distro non-free
+driver   : nvidia-driver-530 - third-party non-free
+driver   : nvidia-driver-535 - third-party non-free
+driver   : nvidia-driver-470-server - distro non-free
+driver   : nvidia-driver-545 - third-party non-free
+driver   : nvidia-driver-550 - third-party non-free
+driver   : nvidia-driver-535-server - distro non-free
+driver   : nvidia-driver-515 - third-party non-free
+driver   : nvidia-driver-535-open - distro non-free
+driver   : nvidia-driver-470 - distro non-free recommended
+driver   : xserver-xorg-video-nouveau - distro free builtin
+```
+
+here we can see that the `recommended` driver is `470`, to install it just run `sudo ubuntu-drivers install`.
+
+If for some reason you want to install a different driver wrt the recommended one you can run `sudo ubuntu-drivers install nvidia:535` for example.
+
 
 <details>
 <summary>Eventual Troubleshooting</summary>
