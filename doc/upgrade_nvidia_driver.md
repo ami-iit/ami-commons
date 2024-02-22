@@ -8,7 +8,9 @@ sudo apt autoremove --purge
 sudo apt clean
 ```
 
-Then you can find the available drivers with `ubuntu-drivers list`, for example:
+### Ubuntu 22.04
+
+You can find the available drivers with `ubuntu-drivers list`, for example:
 ```
 nvidia-driver-525-server, (kernel modules provided by linux-modules-nvidia-525-server-generic-hwe-22.04)
 nvidia-driver-525, (kernel modules provided by linux-modules-nvidia-525-generic-hwe-22.04)
@@ -57,6 +59,45 @@ here we can see that the `recommended` driver is `470`, to install it just run `
 
 If for some reason you want to install a different driver wrt the recommended one you can run `sudo ubuntu-drivers install nvidia:535` for example.
 
+### Ubuntu 20.04
+
+Remember to reinistall linux-headers as they might get cancelled:
+```sh
+sudo apt-get install linux-headers-$(uname -r)
+```
+
+and finally install the chosen driver:
+
+```sh
+sudo apt-get install nvidia-driver-535
+```
+
+After rebooting it should work fine:
+
+```console
+flferretti@iiticubws065:~$ nvidia-smi
+Mon Nov  6 20:19:04 2023       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.129.03             Driver Version: 535.129.03   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Quadro RTX 6000                Off | 00000000:AF:00.0 Off |                  Off |
+| 40%   63C    P8               9W / 260W |     15MiB / 24576MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A      1503      G   /usr/lib/xorg/Xorg                           10MiB |
+|    0   N/A  N/A      1915      G   /usr/bin/gnome-shell                          3MiB |
++---------------------------------------------------------------------------------------+
+```
 
 <details>
 <summary>Eventual Troubleshooting</summary>
@@ -150,44 +191,6 @@ nov 06 17:46:38 iiticubws065 gdm-launch-environment][2140]: pam_unix(gdm-launch-
 Therefore I started again purging packages related to nvidia and adding kernel headers that were deleted during the purge.
 
 </details>
-
-Remember to reinistall linux-headers as they might get cancelled:
-```sh
-sudo apt-get install linux-headers-$(uname -r)
-```
-
-and finally install the chosen driver:
-
-```sh
-sudo apt-get install nvidia-driver-535
-```
-
-After rebooting it should work fine:
-
-```console
-flferretti@iiticubws065:~$ nvidia-smi
-Mon Nov  6 20:19:04 2023       
-+---------------------------------------------------------------------------------------+
-| NVIDIA-SMI 535.129.03             Driver Version: 535.129.03   CUDA Version: 12.2     |
-|-----------------------------------------+----------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
-|                                         |                      |               MIG M. |
-|=========================================+======================+======================|
-|   0  Quadro RTX 6000                Off | 00000000:AF:00.0 Off |                  Off |
-| 40%   63C    P8               9W / 260W |     15MiB / 24576MiB |      0%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
-                                                                                         
-+---------------------------------------------------------------------------------------+
-| Processes:                                                                            |
-|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      |
-|=======================================================================================|
-|    0   N/A  N/A      1503      G   /usr/lib/xorg/Xorg                           10MiB |
-|    0   N/A  N/A      1915      G   /usr/bin/gnome-shell                          3MiB |
-+---------------------------------------------------------------------------------------+
-```
 
 ## NVIDIA CUDA Toolkit 12.3
 
